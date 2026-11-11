@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Product information shown in Help > About and in the .exe file properties. -->
+    <Product>ePad</Product>
+    <Company>Gnomic Software</Company>
+    <Authors>Gnomic Software</Authors>
+    <Description>Quick plain-text notes, stored in SQLite.</Description>
+    <Copyright>Copyright © 2026 Gnomic Software</Copyright>
+    <Version>1.0.0</Version>
+    <!-- Keep the About version clean (no "+commit hash" suffix). -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.15" />
+  </ItemGroup>
+
+</Project>
