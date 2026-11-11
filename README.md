@@ -14,6 +14,27 @@ To use a different database file, for example a portable copy on a USB drive, st
 dotnet run --project src/ePad -- --db D:\notes.db
 ```
 
+## Building a release
+
+```
+powershell -ExecutionPolicy Bypass -File build\release.ps1
+```
+
+This needs the .NET 10 SDK and Inno Setup 6 (`winget install JRSoftware.InnoSetup`). It writes two files to `artifacts\`:
+
+| File | What it is |
+|---|---|
+| `ePad-Setup-<version>.exe` | Installer. Installs for the current user without admin rights by default; "install for all users" is offered on the first page. Adds a Start menu shortcut, an optional desktop icon, and an entry in Settings > Apps for uninstalling. Shown in English, Spanish, French or German. |
+| `ePad-<version>-win-x64-portable.zip` | A single `ePad.exe` that runs from anywhere without installing. |
+
+Both are self-contained, so the target PC doesn't need .NET installed. They run on Windows 10 (1809 or later) and Windows 11, including ARM PCs, which run x64 apps through emulation.
+
+- **Notes are never deleted** by uninstalling or upgrading. They stay in `%LOCALAPPDATA%\ePad\notes.db`.
+- **Releasing a new version:** change `<Version>` in [ePad.csproj](src/ePad/ePad.csproj) and run the script again. The installer upgrades an existing installation in place.
+- **Don't change `AppId`** in [installer/ePad.iss](installer/ePad.iss). Windows uses it to recognise upgrades.
+- **SmartScreen warning:** the files aren't code-signed, so Windows SmartScreen shows "Windows protected your PC" the first time someone runs them. Users can click **More info > Run anyway**. Removing the warning requires a code-signing certificate.
+- **App icon:** [build/make-icon.ps1](build/make-icon.ps1) regenerates `src/ePad/ePad.ico`.
+
 ## How it works
 
 - Notes and settings live in `%LOCALAPPDATA%\ePad\notes.db`.

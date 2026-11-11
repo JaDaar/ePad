@@ -45,6 +45,8 @@ public sealed class MainForm : Form
         _startupLanguage = settings.Language;
 
         Text = "ePad";
+        using (var iconStream = typeof(MainForm).Assembly.GetManifestResourceStream("ePad.ico"))
+            if (iconStream is not null) Icon = new Icon(iconStream);
         Width = 1000;
         Height = 650;
         StartPosition = FormStartPosition.CenterScreen;

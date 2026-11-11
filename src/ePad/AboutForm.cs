@@ -20,6 +20,7 @@ public sealed class AboutForm : Form
         MaximizeBox = false;
         MinimizeBox = false;
         ShowInTaskbar = false;
+        ShowIcon = false;
         StartPosition = FormStartPosition.CenterParent;
         AutoSize = true;
         AutoSizeMode = AutoSizeMode.GrowAndShrink;

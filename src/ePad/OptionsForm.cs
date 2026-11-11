@@ -66,6 +66,7 @@ public sealed class OptionsForm : Form
         MaximizeBox = false;
         MinimizeBox = false;
         ShowInTaskbar = false;
+        ShowIcon = false;
         StartPosition = FormStartPosition.CenterParent;
         AutoSize = true;
         AutoSizeMode = AutoSizeMode.GrowAndShrink;

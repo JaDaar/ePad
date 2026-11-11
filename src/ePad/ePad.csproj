@@ -16,7 +16,15 @@
     <Version>1.0.0</Version>
     <!-- Keep the About version clean (no "+commit hash" suffix). -->
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+
+    <!-- Icon for the .exe (Explorer, Start menu, installer shortcuts). -->
+    <ApplicationIcon>ePad.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Same icon embedded for the window title bar and taskbar (all sizes, so it stays sharp). -->
+    <EmbeddedResource Include="ePad.ico" LogicalName="ePad.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.15" />
