@@ -98,3 +98,7 @@ Some text follows Windows rather than the ePad language:
 - `src/ePad/NoteExporter.cs`: export to .txt, .md and .pdf
 - `src/ePad/AsciiTextBox.cs`: editor control that only accepts ASCII, with adjustable tab width
 - `src/ePad/Icons.cs`: draws the toolbar icons from the Windows icon font
+
+## License
+
+MIT License. Copyright (c) 2026 Gnomic Software. See [LICENSE](LICENSE).
